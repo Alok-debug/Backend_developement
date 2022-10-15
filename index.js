@@ -7,9 +7,9 @@ const server = http.createServer((req, res) => {
     const filePath = path.join(
         __dirname,
         "public",
-        res.url === "/" ? "index.html" : req.url
+        req.url === "/" ? "index.html" : req.url
     );
-
+    // console.log(filePath);
     // extension of file called
     let extension = path.extname(filePath);
 
@@ -54,7 +54,6 @@ const server = http.createServer((req, res) => {
                 res.end(`Server Error : ${err.code}`);
             }
         }
-
         // If no error, then load content
         else {
             //Success
